@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Role {}","map":{"version":3,"mappings":"AAAA,OAAM,MAAOA,IAAI","names":["Role"],"sourceRoot":"","sources":["D:\\Test\\FullStack\\SimpleCRUD\\SimpleCRUD\\SimpleCRUD\\ClientApp\\src\\app\\models\\role.ts"],"sourcesContent":["export class Role {\n    id: number;\n    title: string;\n}\n"]},"metadata":{},"sourceType":"module","externalDependencies":[]}

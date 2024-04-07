@@ -1,0 +1,81 @@
+<h1>{{ title }}</h1>
+<hr/>
+
+<form [formGroup]="userForm" (ngSubmit)="save()">
+  <div class="form-group row">
+    <label class="control-label col-md-12">Name</label>
+    <div class="col-md-4">
+      <input type="text" class="form-control" formControlName="name">
+    </div>
+    <span class="text-danger"
+          *ngIf="
+            (registerFormControl.name.touched || submitted) &&
+            registerFormControl.name.errors?.required">
+      Name is required
+    </span>
+    <span class="text-danger" *ngIf="registerFormControl.name.errors?.minlength">
+      Name must be at least 3 characters long.
+    </span>
+  </div>
+
+    <div class="form-group row">
+        <label class="control-label col-md-12">Role</label>
+        <div class="col-md-4">
+            <select class="form-control" data-val="true" formControlName="roleId">
+                <option value="">--Select Role--</option>
+                <option *ngFor="let role of roles" value="{{ role.id }}">
+                    {{ role.title }}
+                </option>
+            </select>
+        </div>
+        <span class="text-danger"
+            *ngIf="
+            (registerFormControl.roleId.touched || submitted) &&
+            registerFormControl.roleId.errors?.required">
+            Role is required
+        </span>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-md-12">State</label>
+        <div class="col-md-4">
+            <select class="form-control" data-val="true" formControlName="stateId">
+                <option value="">--Select State--</option>
+                <option *ngFor="let state of states" value="{{ state.id }}">
+                    {{ state.name }}
+                </option>
+            </select>
+        </div>
+        <span class="text-danger"
+            *ngIf="
+            (registerFormControl.stateId.touched || submitted) &&
+            registerFormControl.stateId.errors?.required">
+            State is required
+        </span>
+    </div>
+
+    <div class="form-group row">
+      <label class="control-label col-md-12">Address</label>
+      <div class="col-md-4">
+        <textarea type="text" class="form-control" formControlName="address">
+                </textarea>
+      </div>
+      <span class="text-danger"
+            *ngIf="
+            (registerFormControl.address.touched || submitted) &&
+            registerFormControl.address.errors?.required">
+        Address is required
+      </span>
+      <span class="text-danger" *ngIf="registerFormControl.address.errors?.minlength">
+        Address must be at least 10 characters long.
+      </span>
+    </div>
+
+    <hr/>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary margin-right-5">Save</button>
+        <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+    </div>
+
+</form>

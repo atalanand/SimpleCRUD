@@ -1,0 +1,49 @@
+<h1>User List</h1>
+<p *ngIf="!users"><em>Loading..</em></p>
+
+<div class="pull-right">
+    <button class="btn btn-primary" [routerLink]="['/register']">
+        <span>
+            <i class="fa fa-user-plus" aria-hidden="true"></i>
+        </span>
+        Add New User
+    </button>
+</div>
+
+<br/>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
+    <thead>
+      <tr>
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>Role</th>
+        <th>State</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.role.title }}</td>
+        <td>{{ user.state.name }}</td>
+        <td>{{ user.address }}</td>
+        <td></td>
+        <td>
+            <button class="btn btn-outline-dark margin-right-5" [routerLink]="['/update', user.id]">
+                <span>
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </span>
+                Edit
+            </button>
+
+            <button class="btn btn-outline-danger" (click)="deleteUser(user.id)">
+                <span>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>
+                Delete
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
