@@ -3,6 +3,8 @@ This is a basic User management CRUD operation project for Clarivate interview p
 
 Open Database/SimpleCRUD.sql file and execute it in your local database.
 
+Execute Database/INSERT_INTO_Roles.sql and Database/INSERT_INTO_States.sql sql statements to populate sample state and role dropdown data. 
+
 Open SimpleCRUD/SimpleCRUD/SimpleCRUD/appsettings.json file and update the default connection string with your db server name for example, .\SQLEXPRESS
 -> "Integrated Security=SSPI; Persist Security Info=False; Initial Catalog=SimpleCRUD;Data Source=YOURDBSERVERNAME;TrustServerCertificate=True;"
 
